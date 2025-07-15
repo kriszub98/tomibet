@@ -1,27 +1,192 @@
 export const sampleOffer = [
   {
+    id: 1,
     name: "Ogrodzenia Betonowe",
     src: "/images/OfferItem.jpg",
     text: "Dostępne wzory: Kamień, Drewno, Cegła, Piaskowiec, Palisada",
+    offer: [
+      {
+        id: 1,
+        name: "Kamień",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 2,
+        name: "Drewno",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 3,
+        name: "Cegła",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 4,
+        name: "Piaskowiec",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 5,
+        name: "Palisada",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 25x200cm | 20x200cm",
+      },
+    ],
   },
   {
+    id: 2,
     name: "Płyty Chodnikowe",
     src: "/images/OfferItem.jpg",
     text: "Dostępne wzory: gładka, płyta rzymska, imitacja skałki, półksiężyc, stopy Yeti",
+    offer: [
+      {
+        id: 1,
+        name: "Kamień",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 2,
+        name: "Drewno",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 3,
+        name: "Cegła",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 4,
+        name: "Piaskowiec",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 5,
+        name: "Palisada",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 25x200cm | 20x200cm",
+      },
+    ],
   },
   {
+    id: 3,
     name: "Płytki Dekoracyjne",
     src: "/images/OfferItem.jpg",
     text: "Dostępne wzory: Piaskowiec, Skałka, Drewno, Deska",
+    offer: [
+      {
+        id: 1,
+        name: "Kamień",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 2,
+        name: "Drewno",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 3,
+        name: "Cegła",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 4,
+        name: "Piaskowiec",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 5,
+        name: "Palisada",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 25x200cm | 20x200cm",
+      },
+    ],
   },
   {
+    id: 4,
     name: "Podmurówki",
     src: "/images/OfferItem.jpg",
     text: "Dostępne wzory: ramka, gładkie, piaskowiec w ramce",
+    offer: [
+      {
+        id: 1,
+        name: "Kamień",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 2,
+        name: "Drewno",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 3,
+        name: "Cegła",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 4,
+        name: "Piaskowiec",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 5,
+        name: "Palisada",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 25x200cm | 20x200cm",
+      },
+    ],
   },
   {
+    id: 5,
     name: "Słupy Betonowe",
     src: "/images/OfferItem.jpg",
     text: "Dostępne wielkości: 150cm(3 panele), 200cm(4 panele)",
+    offer: [
+      {
+        id: 1,
+        name: "Kamień",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 2,
+        name: "Drewno",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 3,
+        name: "Cegła",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 4,
+        name: "Piaskowiec",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 50x200cm",
+      },
+      {
+        id: 5,
+        name: "Palisada",
+        src: "/images/OfferItem.jpg",
+        text: "Wymiar jednej płyty: 25x200cm | 20x200cm",
+      },
+    ],
   },
 ];
