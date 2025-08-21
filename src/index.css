@@ -2,6 +2,11 @@
 @import "tailwindcss";
 @layer theme, base, components, utilities;
 
+@plugin "@iconify/tailwind4" {
+ scale: 1.2;
+}
+
+
 @theme {
   --color-p1: #188fda;
   --color-p2: #3C52D9;
