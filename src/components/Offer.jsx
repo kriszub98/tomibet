@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import clsx from "clsx";
 import { Element, Link as LinkScroll } from "react-scroll";
 import { sampleOffer } from "../static/sampleOffer";
 
-const Card = ({ name, src, text, className }) => {
+const Card = ({ name, src, text, className, onClick }) => {
   return (
     <div
-      className={`max-w-sm rounded-lg overflow-hidden shadow-lg bg-indigo-950 ${className}`}
+      className={`max-w-sm rounded-lg overflow-hidden shadow-lg ${className}`}
+      onClick={onClick}
     >
       <img className="w-full" loading="lazy" src={src} alt={name} />
       <div className="px-6 py-4">
@@ -17,6 +19,8 @@ const Card = ({ name, src, text, className }) => {
 };
 
 const Offer = () => {
+  const [activeCategory, setActiveCategory] = useState(sampleOffer[0].name);
+
   return (
     <section>
       <Element
@@ -33,37 +37,60 @@ const Offer = () => {
         </p>
         <div className="grid justify-center gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {sampleOffer.map((item) => (
-            <LinkScroll key={item.id} to={item.name} smooth>
-              <Card
-                className={
-                  "hover:bg-indigo-900 transition-all duration-200 cursor-pointer"
-                }
-                {...item}
-              />
-            </LinkScroll>
+            <Card
+              className={clsx(
+                "hover:bg-indigo-700 transition-all duration-200 cursor-pointer",
+                item.name === activeCategory ? "bg-indigo-800" : "bg-indigo-950"
+              )}
+              onClick={() => setActiveCategory(item.name)}
+              key={item.id}
+              {...item}
+            />
           ))}
         </div>
       </Element>
 
+      {/* Active Markers */}
+      <div className="container mx-auto pt-16 max-xl:px-10 max-lg:px-6 max-sm:px-4 max-lg:hidden max-lg:pointer-events-none">
+        <ul className="flex gap-5">
+          {sampleOffer.map((category) => {
+            return (
+              <li
+                key={category.id}
+                className={clsx(
+                  "border-1 p-2 rounded-xl cursor-pointer transition-all duration-200",
+                  category.name === activeCategory ? "text-p2" : ""
+                )}
+                onClick={() => setActiveCategory(category.name)}
+              >
+                {category.name}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
       {/* Categories */}
-      {sampleOffer.map((category) => {
-        return (
-          <Element
-            className="container mx-auto pt-16 pb-8 max-xl:px-10 max-lg:px-6 max-sm:px-4"
-            name={category.name}
-            key={category.id}
-          >
-            <h2 className="text-p4 text-3xl font-medium mb-8">
-              {category.name}
-            </h2>
-            <div className="grid justify-center gap-8 sm:grid-cols-3 lg:grid-cols-4">
-              {category.offer.map((item) => (
-                <Card key={item.id} {...item} />
-              ))}
-            </div>
-          </Element>
-        );
-      })}
+      {sampleOffer
+        .filter((category) => category.name === activeCategory)
+        .map((category) => {
+          return (
+            <Element
+              className="container mx-auto pt-8 pb-8 max-xl:px-10 max-lg:px-6 max-sm:px-4"
+              name={category.name}
+              key={category.id}
+            >
+              <h2 className="text-p4 text-3xl font-medium mb-8">
+                {category.name}
+              </h2>
+              <div className="grid justify-center gap-8 sm:grid-cols-3 lg:grid-cols-4">
+                {category.offer.map((item) => (
+                  <Card key={item.id} className="bg-indigo-950" {...item} />
+                ))}
+              </div>
+            </Element>
+          );
+        })}
     </section>
   );
 };
