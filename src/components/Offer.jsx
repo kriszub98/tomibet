@@ -15,7 +15,7 @@ const Card = ({ name, src, text, className, onClick }) => {
       <img className="w-full" loading="lazy" src={src} alt={name} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
-        <p className="text-gray-700 text-base">{text}</p>
+        <p className="text-gray-400 text-base">{text}</p>
       </div>
     </LinkScroll>
   );
@@ -42,8 +42,8 @@ const Offer = () => {
           {sampleOffer.map((item) => (
             <Card
               className={clsx(
-                "hover:bg-indigo-700 transition-all duration-200 cursor-pointer",
-                item.name === activeCategory ? "bg-indigo-800" : "bg-indigo-950"
+                "transition-all duration-200 cursor-pointer hover:bg-s4",
+                item.name === activeCategory ? "bg-p2" : "bg-s5"
               )}
               onClick={() => setActiveCategory(item.name)}
               key={item.id}
@@ -61,8 +61,8 @@ const Offer = () => {
                   key={category.id}
                   onClick={() => setActiveCategory(category.name)}
                   className={clsx(
-                    "border-1 p-2 rounded-xl cursor-pointer transition-all duration-200",
-                    category.name === activeCategory ? "text-p2" : ""
+                    "p-3 rounded-xl cursor-pointer transition-all duration-200 hover:bg-s4",
+                    category.name === activeCategory ? "bg-p2" : "bg-s5"
                   )}
                 >
                   {category.name}
@@ -83,7 +83,7 @@ const Offer = () => {
                 </h2>
                 <div className="grid justify-center gap-8 sm:grid-cols-3 lg:grid-cols-4">
                   {category.offer.map((item) => (
-                    <Card key={item.id} className="bg-indigo-950" {...item} />
+                    <Card key={item.id} className="bg-blue-900" {...item} />
                   ))}
                 </div>
               </Element>
