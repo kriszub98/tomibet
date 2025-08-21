@@ -60,7 +60,8 @@ const Header = () => {
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-12">
                 <li className="relative flex flex-1 items-center justify-between max-lg:flex-col gap-5">
-                  <NavLink title="Nasza Oferta" to="ourOffer" />
+                  {/* TODO: Przemyśl czy nie logo */}
+                  <NavLink title="TomiBet" to="hero" />
                   <NavLink title="Nasza Oferta" to="ourOffer" />
                   <NavLink title="Nasza Oferta" to="ourOffer" />
                   <NavLink title="Nasza Oferta" to="ourOffer" />

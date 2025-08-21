@@ -21,7 +21,7 @@ const Offer = () => {
     <section>
       <Element
         name="ourOffer"
-        className="container mx-auto pt-32 px-16 max-xl:px-10 max-lg:px-6 max-sm:px-4"
+        className="container mx-auto pt-32 max-xl:px-10 max-lg:px-6 max-sm:px-4"
       >
         <h1 className="text-p4 text-5xl font-medium mb-4">Nasza oferta</h1>
         <p className="text-xl leading-8 mb-12 sm:mb-8">
@@ -49,7 +49,7 @@ const Offer = () => {
       {sampleOffer.map((category) => {
         return (
           <Element
-            className="container mx-auto pt-16 pb-8 px-16 max-xl:px-10 max-lg:px-6 max-sm:px-4"
+            className="container mx-auto pt-16 pb-8 max-xl:px-10 max-lg:px-6 max-sm:px-4"
             name={category.name}
             key={category.id}
           >
