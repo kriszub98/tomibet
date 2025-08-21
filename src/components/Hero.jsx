@@ -21,13 +21,13 @@ const Hero = () => {
             <Button
               to="ourOffer"
               smooth
-              className="bg-blue-900 hover:bg-blue-500 text-white font-semibold p-4 rounded-lg cursor-pointer max-md:mx-auto transition-bg duration-200"
+              className="bg-blue-950 hover:bg-blue-500 text-white font-semibold p-4 rounded-lg cursor-pointer max-md:mx-auto transition-bg duration-200"
             >
               Sprawdź naszą ofertę
             </Button>
           </div>
 
-          <div className="flex flex-1 p-2 items-center justify-center min-w-64 max-lg:py-16">
+          <div className="flex flex-1 p-4 items-center justify-center min-w-64 max-lg:py-16">
             <img src="images/OfferItem.jpg" alt="hero" />
           </div>
         </div>
