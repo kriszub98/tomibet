@@ -60,11 +60,22 @@ const Header = () => {
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-12">
                 <li className="relative flex flex-1 items-center justify-between max-lg:flex-col gap-5">
-                  {/* TODO: Przemyśl czy nie logo */}
-                  <NavLink title="TomiBet" to="hero" />
+                  <LinkScroll
+                    onClick={() => setIsOpen(false)}
+                    to={"hero"}
+                    offset={-100}
+                    spy
+                    smooth
+                    className="text-[16px] tracking-wide font-bold leading-[24px] uppercase transition-colors duration-500 cursor-pointer max-lg:my-4 max-lg:text-[32px] max-lg:font-semibold max-lg:leading-[40px]"
+                    activeClass="text-p3"
+                  >
+                    <span className="text-[#f0f0f0] hover:text-">TO</span>
+                    <span className="text-[#C7C6C6] hover:text-">MI</span>
+                    <span className="text-[#25BADD] hover:text-">BET</span>
+                  </LinkScroll>
+                  <NavLink title="Strona Główna" to="hero" />
                   <NavLink title="Nasza Oferta" to="ourOffer" />
-                  <NavLink title="Nasza Oferta" to="ourOffer" />
-                  <NavLink title="Nasza Oferta" to="ourOffer" />
+                  <NavLink title="Kontakt" to="dojazd" />
                 </li>
               </ul>
             </nav>
