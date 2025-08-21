@@ -29,7 +29,7 @@ const Header = () => {
         spy
         smooth
         className="text-[16px] font-bold leading-[24px] text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:text-[32px] max-lg:font-semibold max-lg:leading-[40px]"
-        activeClass="text-p3"
+        activeClass="!text-p3"
       >
         {title}
       </LinkScroll>
@@ -45,8 +45,10 @@ const Header = () => {
     >
       <div className="container mx-auto px-16 max-xl:px-10 max-lg:px-5 max-sm:px-4 flex h-14 items-center">
         {/* Logo for smaller screens */}
-        <a className="lg:hidden flex-1 pointer-cursor z-2">
-          <img src="" alt="logo" height={55} width={100} />
+        <a className="lg:hidden flex-1 pointer-cursor z-2 text-[16px] pl-4 tracking-wide font-bold leading-[24px] uppercase transition-colors duration-500 cursor-pointer max-lg:my-4 max-lg:text-[32px] max-lg:font-semibold max-lg:leading-[40px]">
+          <span className="text-[#f0f0f0] hover:text-">TO</span>
+          <span className="text-[#C7C6C6] hover:text-">MI</span>
+          <span className="text-[#25BADD] hover:text-">BET</span>
         </a>
 
         {/* Menu */}
@@ -66,7 +68,7 @@ const Header = () => {
                     offset={-100}
                     spy
                     smooth
-                    className="text-[16px] tracking-wide font-bold leading-[24px] uppercase transition-colors duration-500 cursor-pointer max-lg:my-4 max-lg:text-[32px] max-lg:font-semibold max-lg:leading-[40px]"
+                    className="text-[16px] tracking-wide font-bold leading-[24px] uppercase transition-colors duration-500 cursor-pointer max-lg:my-4 max-lg:text-[32px] max-lg:font-semibold max-lg:leading-[40px] max-lg:hidden"
                     activeClass="text-p3"
                   >
                     <span className="text-[#f0f0f0] hover:text-">TO</span>
