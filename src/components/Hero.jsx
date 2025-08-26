@@ -1,16 +1,16 @@
 import { Element, Button } from "react-scroll";
+
 export default function BentoGallery({
   images = [
-    { src: "https://picsum.photos/465/285?random=1", alt: "Gallery Image 1" },
-    { src: "https://picsum.photos/390/215?random=2", alt: "Gallery Image 2" },
-    { src: "https://picsum.photos/390/430?random=3", alt: "Gallery Image 3" },
-    { src: "https://picsum.photos/300/300?random=3", alt: "Gallery Image 4" },
-    { src: "https://picsum.photos/185/185?random=5", alt: "Gallery Image 5" },
+    { src: "images/OfferItem.jpg", alt: "Gallery Image 1" },
+    { src: "images/OfferItem.jpg", alt: "Gallery Image 2" },
+    { src: "images/OfferItem.jpg", alt: "Gallery Image 3" },
+    { src: "images/OfferItem.jpg", alt: "Gallery Image 4" },
+    { src: "images/OfferItem.jpg", alt: "Gallery Image 5" },
   ],
   title = "TOMIBET - Ogrodzenia i wyroby betonowe",
   paragraph = "Zajmujemy się wytwarzaniem ogrodzeń i wyrobów z betonu. Nasze produkty są wytwarzane z certyfikowanego betonu, dodatkowo ogrodzenia są wzmacniane zbrojeniem. Zaletą ogrodzeń betonowych jest to, iż są trwałe i solidne oraz odporne na działanie czynników atmosferycznych. Ich dodatkowym atutem jest wyciszanie odgłosów z zewnątrz.",
 }) {
-  // Ensure we have at least 5 items; if not, fill with blanks to avoid undefined access
   const [i1, i2, i3, i4, i5] = [0, 1, 2, 3, 4].map(
     (idx) => images[idx] ?? { src: "", alt: "" }
   );
@@ -18,64 +18,136 @@ export default function BentoGallery({
   return (
     <section className="bg-p2">
       <Element name="hero">
-        <div className="container mx-auto pt-32 max-xl:px-10 max-lg:px-6 max-sm:px-4 grid items-start gap-5 grid-cols-[1fr_1fr_1.2fr_0.8fr] grid-rows-[200px_55px_185px_145px_auto] max-md:grid-cols-[repeat(4,_1fr)]">
-          <div className="col-start-1 col-end-3 row-start-1 row-end-4 flex flex-col items-start justify-center max-w-3xl px-2 py-16 max-sm:col-start-1 max-sm:col-end-5 max-sm:row-start-1 max-md:row-end-3">
-            <h1 className="text-p4 text-5xl font-medium mb-6 max-lg:text-4xl">
-              {title}
-            </h1>
-            <p className="text-2xl leading-8 mb-12 sm:mb-8 max-lg:text-xl">
-              {paragraph}
-            </p>
-            <Button
-              to="ourOffer"
-              smooth
-              className="bg-blue-950 hover:bg-blue-500 text-white font-semibold p-4 rounded-lg cursor-pointer max-md:mx-auto transition-bg duration-200"
+        <div className="container mx-auto pt-32 max-xl:px-10 max-lg:px-6 max-sm:px-4">
+          {/* GRID:
+             - base: 1 kolumna
+             - md: 6 kolumn (2 zdjęcia)
+             - lg: 12 kolumn (4 zdjęcia)
+             - xl: 4 kolumny 5 zdjęć
+          */}
+          <div
+            className="
+              grid items-start gap-5
+              grid-cols-1
+              md:grid-cols-6
+              lg:grid-cols-12
+              xl:grid-cols-[1fr_1fr_1.2fr_0.8fr] xl:grid-rows-[200px_55px_185px_145px_auto]
+            "
+          >
+            {/* TEKST */}
+            <div
+              className="
+                order-1 col-span-1
+                md:col-span-6
+                lg:col-span-8
+                xl:order-none xl:col-start-1 xl:col-end-3 xl:row-start-1 xl:row-end-4
+                flex flex-col items-start justify-center px-2 py-16 max-w-3xl
+
+              "
             >
-              Sprawdź naszą ofertę
-            </Button>
+              <h1 className="text-p4 font-medium mb-6 text-[clamp(28px,4vw,44px)]">
+                {title}
+              </h1>
+              <p className="text-[clamp(16px,2.2vw,20px)] leading-8 mb-10 lg:mb-6">
+                {paragraph}
+              </p>
+              <Button
+                to="ourOffer"
+                smooth
+                className="bg-blue-950 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-lg cursor-pointer transition-[background-color] duration-200"
+              >
+                Sprawdź naszą ofertę
+              </Button>
+            </div>
+
+            {/* i1 */}
+            <figure
+              className="
+                order-2 col-span-1 aspect-[4/3] overflow-hidden rounded-lg w-full h-full
+                md:col-span-3
+                lg:col-start-1 lg:col-end-5
+                xl:order-none xl:aspect-auto xl:rounded-none xl:rounded-bl-lg
+                xl:col-start-1 xl:col-end-2 xl:row-start-4 xl:row-end-6
+                bg-gray-500
+              "
+            >
+              <img
+                src={i1.src || "images/OfferItem.jpg"}
+                alt={i1.alt || ""}
+                className="w-full h-full object-cover"
+              />
+            </figure>
+
+            {/* i2 (pokazuj od md) */}
+            <figure
+              className="
+                hidden md:block w-full h-full
+                order-3 md:col-span-3 aspect-[4/3] overflow-hidden rounded-lg
+                lg:col-start-5 lg:col-end-9
+                xl:order-none xl:aspect-auto xl:rounded-none
+                xl:col-start-2 xl:col-end-3 xl:row-start-4 xl:row-end-6
+                bg-gray-500
+              "
+            >
+              <img
+                src={i2.src || "images/OfferItem.jpg"}
+                alt={i2.alt || ""}
+                className="w-full h-full object-cover"
+              />
+            </figure>
+
+            {/* i4 (pokazuj od lg jako „duży” prawy) */}
+            <figure
+              className="
+                hidden lg:block
+                order-4 aspect-[16/13] overflow-hidden rounded-lg
+                lg:col-start-9 lg:col-end-13 lg:row-start-1
+                xl:order-none xl:aspect-auto xl:rounded-none xl:rounded-br-lg
+                xl:col-start-3 xl:col-end-4 xl:row-start-2 xl:row-end-6
+                bg-gray-500 w-full h-full
+              "
+            >
+              <img
+                src={i4.src || "images/OfferItem.jpg"}
+                alt={i4.alt || ""}
+                className="w-full h-full object-cover"
+              />
+            </figure>
+
+            {/* i3 (tylko XL – mały kafel u góry) */}
+            <figure
+              className="
+                hidden
+                xl:block xl:col-start-3 xl:col-end-4 xl:row-start-1 xl:row-end-2
+                lg:block lg:col-start-9 lg:col-end-13 lg:row-start-2
+                bg-gray-500 overflow-hidden w-full h-full rounded-tl-lg
+              "
+            >
+              <img
+                src={i3.src || "images/OfferItem.jpg"}
+                alt={i3.alt || ""}
+                className="w-full h-full object-cover"
+              />
+            </figure>
+
+            {/* i5 (tylko XL – skrajny prawy) */}
+            <figure
+              className="
+                hidden
+                xl:block xl:col-start-4 xl:col-end-5 xl:row-start-1 xl:row-end-4
+                bg-gray-500 overflow-hidden w-full h-full rounded-r-lg
+              "
+            >
+              <img
+                src={i5.src || "images/OfferItem.jpg"}
+                alt={i5.alt || ""}
+                className="w-full h-full object-cover"
+              />
+            </figure>
           </div>
-          <figure className="col-start-1 flex items-center justify-center col-end-2 row-start-4 row-end-6 bg-gray-500 overflow-hidden w-full h-full rounded-l-lg max-md:col-start-1 max-md:col-end-3 max-md:row-start-3 max-md:row-end-5">
-            <img
-              src="images/OfferItem.jpg"
-              className="w-full h-full object-cover"
-              alt="First Photo"
-              loading="lazy"
-            />
-          </figure>
-          <figure className="col-start-2 flex items-center justify-center col-end-3 row-start-4 row-end-6 bg-gray-500 overflow-hidden w-full h-full max-md:col-start-3 max-md:col-end-6 max-md:row-start-3 max-md:row-end-5">
-            <img
-              src="images/OfferItem.jpg"
-              className="w-full h-full object-cover"
-              alt="First Photo"
-              loading="lazy"
-            />
-          </figure>
-          <figure className="col-start-3 flex items-center justify-center col-end-4 row-start-1 row-end-2 bg-gray-500 overflow-hidden w-full h-full rounded-tl-lg max-sm:hidden">
-            <img
-              src="images/OfferItem.jpg"
-              className="w-full h-full object-cover"
-              alt="First Photo"
-              loading="lazy"
-            />
-          </figure>
-          <figure className="col-start-3 flex items-center justify-center col-end-4 row-start-2 row-end-6 bg-gray-500 overflow-hidden w-full h-full rounded-br-lg max-sm:hidden">
-            <img
-              src="images/OfferItem.jpg"
-              className="w-full h-full object-cover"
-              alt="First Photo"
-              loading="lazy"
-            />
-          </figure>
-          <figure className="col-start-4 flex items-center justify-center col-end-5 row-start-1 row-end-4 bg-gray-500 overflow-hidden w-full h-full rounded-r-lg max-sm:hidden">
-            <img
-              src="images/OfferItem.jpg"
-              className="w-full h-full object-cover"
-              alt="First Photo"
-              loading="lazy"
-            />
-          </figure>
         </div>
 
+        {/* FALA */}
         <svg
           className="block w-full h-32 fill-s1 rotate-180"
           xmlns="http://www.w3.org/2000/svg"
