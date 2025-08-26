@@ -1,22 +1,30 @@
-import React from "react";
-import { Button, Element } from "react-scroll";
+import { Element, Button } from "react-scroll";
+export default function BentoGallery({
+  images = [
+    { src: "https://picsum.photos/465/285?random=1", alt: "Gallery Image 1" },
+    { src: "https://picsum.photos/390/215?random=2", alt: "Gallery Image 2" },
+    { src: "https://picsum.photos/390/430?random=3", alt: "Gallery Image 3" },
+    { src: "https://picsum.photos/300/300?random=3", alt: "Gallery Image 4" },
+    { src: "https://picsum.photos/185/185?random=5", alt: "Gallery Image 5" },
+  ],
+  title = "TOMIBET - Ogrodzenia i wyroby betonowe",
+  paragraph = "Zajmujemy się wytwarzaniem ogrodzeń i wyrobów z betonu. Nasze produkty są wytwarzane z certyfikowanego betonu, dodatkowo ogrodzenia są wzmacniane zbrojeniem. Zaletą ogrodzeń betonowych jest to, iż są trwałe i solidne oraz odporne na działanie czynników atmosferycznych. Ich dodatkowym atutem jest wyciszanie odgłosów z zewnątrz.",
+}) {
+  // Ensure we have at least 5 items; if not, fill with blanks to avoid undefined access
+  const [i1, i2, i3, i4, i5] = [0, 1, 2, 3, 4].map(
+    (idx) => images[idx] ?? { src: "", alt: "" }
+  );
 
-const Hero = () => {
   return (
     <section className="bg-p2">
       <Element name="hero">
-        <div className="container flex flex-wrap mx-auto pt-32 max-xl:px-10 max-lg:px-6 max-sm:px-4 pb-32">
-          <div className="flex flex-col items-start justify-center max-w-3xl px-2 py-16">
+        <div className="container mx-auto pt-32 max-xl:px-10 max-lg:px-6 max-sm:px-4 grid items-start gap-5 grid-cols-[1fr_1fr_1.2fr_0.8fr] grid-rows-[200px_55px_185px_145px_auto] max-md:grid-cols-[repeat(4,_1fr)]">
+          <div className="col-start-1 col-end-3 row-start-1 row-end-4 flex flex-col items-start justify-center max-w-3xl px-2 py-16 max-sm:col-start-1 max-sm:col-end-5 max-sm:row-start-1 max-md:row-end-3">
             <h1 className="text-p4 text-5xl font-medium mb-6 max-lg:text-4xl">
-              TOMIBET - Ogrodzenia i wyroby betonowe
+              {title}
             </h1>
             <p className="text-2xl leading-8 mb-12 sm:mb-8 max-lg:text-xl">
-              Zajmujemy się wytwarzaniem ogrodzeń i wyrobów z betonu. Nasze
-              produkty są wytwarzane z certyfikowanego betonu, dodatkowo
-              ogrodzenia są wzmacniane zbrojeniem. Zaletą ogrodzeń betonowych
-              jest to, iż są trwałe i solidne oraz odporne na działanie
-              czynników atmosferycznych. Ich dodatkowym atutem jest wyciszanie
-              odgłosów z zewnątrz.
+              {paragraph}
             </p>
             <Button
               to="ourOffer"
@@ -26,10 +34,46 @@ const Hero = () => {
               Sprawdź naszą ofertę
             </Button>
           </div>
-
-          <div className="flex flex-1 p-4 items-center justify-center min-w-64 max-lg:py-16">
-            <img src="images/OfferItem.jpg" alt="hero" />
-          </div>
+          <figure className="col-start-1 flex items-center justify-center col-end-2 row-start-4 row-end-6 bg-gray-500 overflow-hidden w-full h-full rounded-l-lg max-md:col-start-1 max-md:col-end-3 max-md:row-start-3 max-md:row-end-5">
+            <img
+              src="images/OfferItem.jpg"
+              className="w-full h-full object-cover"
+              alt="First Photo"
+              loading="lazy"
+            />
+          </figure>
+          <figure className="col-start-2 flex items-center justify-center col-end-3 row-start-4 row-end-6 bg-gray-500 overflow-hidden w-full h-full max-md:col-start-3 max-md:col-end-6 max-md:row-start-3 max-md:row-end-5">
+            <img
+              src="images/OfferItem.jpg"
+              className="w-full h-full object-cover"
+              alt="First Photo"
+              loading="lazy"
+            />
+          </figure>
+          <figure className="col-start-3 flex items-center justify-center col-end-4 row-start-1 row-end-2 bg-gray-500 overflow-hidden w-full h-full rounded-tl-lg max-sm:hidden">
+            <img
+              src="images/OfferItem.jpg"
+              className="w-full h-full object-cover"
+              alt="First Photo"
+              loading="lazy"
+            />
+          </figure>
+          <figure className="col-start-3 flex items-center justify-center col-end-4 row-start-2 row-end-6 bg-gray-500 overflow-hidden w-full h-full rounded-br-lg max-sm:hidden">
+            <img
+              src="images/OfferItem.jpg"
+              className="w-full h-full object-cover"
+              alt="First Photo"
+              loading="lazy"
+            />
+          </figure>
+          <figure className="col-start-4 flex items-center justify-center col-end-5 row-start-1 row-end-4 bg-gray-500 overflow-hidden w-full h-full rounded-r-lg max-sm:hidden">
+            <img
+              src="images/OfferItem.jpg"
+              className="w-full h-full object-cover"
+              alt="First Photo"
+              loading="lazy"
+            />
+          </figure>
         </div>
 
         <svg
@@ -43,6 +87,4 @@ const Hero = () => {
       </Element>
     </section>
   );
-};
-
-export default Hero;
+}
